@@ -1,16 +1,18 @@
 import React, { useCallback, useState } from 'react';
 
-export const App: React.FC<{ message: string }> = (props) => {
+function App({ message }: { message: string }): JSX.Element {
   const [count, setCount] = useState(0);
   const increment = useCallback(() => {
-    setCount((count) => count + 1);
+    setCount((currentCount) => currentCount + 1);
   }, [count]);
 
   return (
     <>
-      <h1>{props.message}</h1>
+      <h1>{message}</h1>
       <h2>Count: {count}</h2>
-      <button onClick={increment}>Increment</button>
+      <button type="button" onClick={increment}>Increment</button>
     </>
   );
 };
+
+export default App;
